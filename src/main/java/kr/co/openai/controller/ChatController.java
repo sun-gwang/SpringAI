@@ -1,6 +1,7 @@
 package kr.co.openai.controller;
 
 import kr.co.openai.entity.Answer;
+import kr.co.openai.entity.Movie;
 import kr.co.openai.service.ChatService;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,5 +61,10 @@ public class ChatController {
     @GetMapping("/chatMap")
     public Map<String, String> chatMap(String message){
         return chatService.chatMap(message);
+    }
+
+    @GetMapping("chatMovie")
+    public List<Movie> chatMovie(String directorName){
+        return chatService.chatMovie(directorName);
     }
 }
